@@ -74,7 +74,8 @@ def update(shop_name):
             'slot': slot,
             'page': page,
             'item': {
-                'material': material
+                'material': material,
+                'amount': 1
             },
             'buyPrice': round(buy_price),
             # See https://github.com/Biggsen/vz-price-guide/blob/df71cb75d684a575dab282ea8bf5382a23c3b539/src/_includes/tbody.njk#L10-L14
