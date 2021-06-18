@@ -74,7 +74,7 @@ def update(shop_name):
             'slot': slot,
             'page': page,
             'item': {
-                'material': material,
+                'material': material.upper(),
                 'amount': 1
             },
             'buyPrice': round(buy_price),
