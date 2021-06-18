@@ -1,3 +1,7 @@
+# Eco Updater
+
+Creates [ShopGUIPlus](https://www.spigotmc.org/resources/shopgui-1-7-1-17.6515/) configs based off of [this site](https://minecraft-economy-price-guide.net/)
+
 # Usage
 The `update.yml` workflow runs on a crono job on each day at 00:00, if you want to do a manual update follow these steps:
 1. Go to [this page](https://github.com/GiansCode/eco-updater/actions/workflows/update.yml)
