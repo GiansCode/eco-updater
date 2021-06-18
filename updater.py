@@ -8,6 +8,10 @@ items_per_page = 45
 raw_url = 'https://raw.githubusercontent.com/Biggsen/vz-price-guide/main/src/_data/{}.json'
 shops = ['drops', 'earth', 'food', 'ores', 'sand', 'stone', 'utility', 'wood']
 
+# See https://github.com/Biggsen/vz-price-guide/blob/df71cb75d684a575dab282ea8bf5382a23c3b539/src/index.njk#L3-L4
+price_multiplier = 1
+sell_margin = 0.30
+
 
 def get_content(shop_name):
     """
@@ -61,16 +65,20 @@ def update(shop_name):
             log(shop_name, f"Skipping {material} because price {price_string} is not a number")
             continue
 
-        stack = int(item['stack'])
+        # See https://github.com/Biggsen/vz-price-guide/blob/df71cb75d684a575dab282ea8bf5382a23c3b539/src/_includes/tbody.njk#L2-L3
+        buy_price = price * price_multiplier
+        sell_price = price * sell_margin * price_multiplier
 
-        items[f"p{page}-{slot}"] = {
+        items[material] = {
             'type': 'item',
             'slot': slot,
             'page': page,
             'item': {
                 'material': material
             },
-            'buyPrice': price
+            'buyPrice': round(buy_price),
+            # See https://github.com/Biggsen/vz-price-guide/blob/df71cb75d684a575dab282ea8bf5382a23c3b539/src/_includes/tbody.njk#L10-L14
+            'sellPrice': round(sell_price, 2) if sell_price < 0.8 else round(sell_price)
         }
 
         slot += 1
