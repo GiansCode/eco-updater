@@ -1,3 +1,5 @@
-shops/
 venv/
 .idea/
+
+shops/
+worth.yml
