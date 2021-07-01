@@ -37,6 +37,6 @@ class Essentials:
 
             # See https://github.com/Biggsen/vz-price-guide/blob/df71cb75d684a575dab282ea8bf5382a23c3b539/src/_includes/tbody.njk#L3
             sell_price = price * self.sell_margin * self.price_multiplier
-            self.items[material] = utils.round_sell_price(sell_price)
+            self.items[material.lower().replace('_', '')] = utils.round_sell_price(sell_price)
 
         utils.log(self.name, shop_name, "Updated!\n")
