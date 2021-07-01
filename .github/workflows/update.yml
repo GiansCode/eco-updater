@@ -30,3 +30,8 @@ jobs:
         with:
           name: Shops
           path: shops
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: EssentialsX worth
+          path: worth.yml
